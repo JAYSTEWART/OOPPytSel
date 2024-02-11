@@ -55,4 +55,3 @@ class Test_1:
 test = Test_1()
 test.test_select_product()
 
-dif = print('TEtx')
