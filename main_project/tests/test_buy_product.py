@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from main_project.pages.cart_page import Cart_page
 from main_project.pages.login_page import Login_page
 from main_project.pages.main_page import Main_page
+from main_project.pages.user_information_page import User_information_page
 
 
 def test_buy_product():
@@ -23,4 +24,7 @@ def test_buy_product():
 
     cp = Cart_page(driver)
     cp.click_checkout_button()
+
+    uip = User_information_page(driver)
+    uip.input_data()
     time.sleep(5)
