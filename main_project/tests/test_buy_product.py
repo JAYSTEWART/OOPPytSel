@@ -2,8 +2,10 @@ import time
 
 from selenium import webdriver
 from main_project.pages.cart_page import Cart_page
+from main_project.pages.finish_page import Finish_page
 from main_project.pages.login_page import Login_page
 from main_project.pages.main_page import Main_page
+from main_project.pages.payment_page import Payment_page
 from main_project.pages.user_information_page import User_information_page
 
 
@@ -23,4 +25,10 @@ def test_buy_product():
 
     uip = User_information_page(driver)
     uip.input_data()
+
+    pp = Payment_page(driver)
+    pp.payment()
+
+    fp = Finish_page(driver)
+    fp.finish()
     time.sleep(5)
