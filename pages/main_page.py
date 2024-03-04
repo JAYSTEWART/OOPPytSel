@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from main_project.base.base_class import Base
+from base.base_class import Base
 
 
 class Main_page(Base):
@@ -14,6 +14,8 @@ class Main_page(Base):
     # Locators
     select_product_1 = "//button[@id='add-to-cart-sauce-labs-backpack']"
     cart = "//div[@id='shopping_cart_container']"
+    button_menu = "//button[@id='react-burger-menu-btn']"
+    button_about = "//a[@id='about_sidebar_link']"
 
     # Getters
 
@@ -25,6 +27,14 @@ class Main_page(Base):
         return WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, self.cart)))
 
+    def get_button_menu(self):
+        return WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable((By.XPATH, self.button_menu)))
+
+    def get_about(self):
+        return WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable((By.XPATH, self.button_about)))
+
     # Actions
 
     def click_select_product_1(self):
@@ -35,9 +45,23 @@ class Main_page(Base):
         self.get_cart().click()
         print("Click cart")
 
+    def click_menu(self):
+        self.get_button_menu().click()
+        print('Click menu')
+
+    def click_about(self):
+        self.get_about().click()
+        print('Click About')
+
     # Methods
 
     def select_product(self):
         self.get_current_url()
         self.click_select_product_1()
         self.click_cart()
+
+    def select_menu_about(self):
+        self.get_current_url()
+        self.click_menu()
+        self.click_about()
+        self.assert_url('https://saucelabs.com/')

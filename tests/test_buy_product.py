@@ -1,12 +1,12 @@
 import time
 
 from selenium import webdriver
-from main_project.pages.cart_page import Cart_page
-from main_project.pages.finish_page import Finish_page
-from main_project.pages.login_page import Login_page
-from main_project.pages.main_page import Main_page
-from main_project.pages.payment_page import Payment_page
-from main_project.pages.user_information_page import User_information_page
+from pages.cart_page import Cart_page
+from pages.finish_page import Finish_page
+from pages.login_page import Login_page
+from pages.main_page import Main_page
+from pages.payment_page import Payment_page
+from pages.user_information_page import User_information_page
 
 
 def test_buy_product():
